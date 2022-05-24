@@ -3,6 +3,29 @@ Siguiente prueba
 
 Esto es genial por que ya aprendi a sincronizar mi proyecto para seguridad
 
+usamos github para mantener el backup
+instalamos el git
+-abrimos gitbash
+-nos dirigimos a la carpeta donde esta el proyecto
+-git init
+-git clone : si queremos clonar un repositorio
+ejemplo: git clone https://github.com/luisgonzalezruiz/ventas_lw.git
+-git status : para ver el stado actual de nuestro repositorio
+-git add : para agregar algun cambio al repositorio local
+-gir commit -m "mi comentario"  : para confirmar lo agregado
+-git rm : Este comando permite borrar un archivo de Git. Esto no significa que simplemente lo borre del área de trabajo, sino que lo quita de los archivos rastreados
+
+Para sincronizar en la nube
+-git push : Este es el comando que te permite actualizar un repositorio remoto con los cambios realizados en la versión local. Es necesario indicar el repositorio y la rama a actualizar.
+ejemplo : git push origin main
+
+-git log
+
+
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
