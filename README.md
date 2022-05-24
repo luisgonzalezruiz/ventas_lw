@@ -22,6 +22,8 @@ ejemplo : git push origin main
 -git log
 
 
+-Instalamos livewire y lo publicamos para que aparezca en la carpeta config.
+
 
 
 
