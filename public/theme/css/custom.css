@@ -1,0 +1,91 @@
+@import url('main.css');
+@import url('color-pallet.css');
+@import url('elements/avatar.css');
+@import url('widgets/modules-widgets.css');
+@import url('forms/theme-checkbox-radio.css');
+@import url('apps/scrumboard.css');
+@import url('apps/notes.css');
+
+aside {
+  display: none !important;
+}
+
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: #3b3f5c;
+  border-color: #3b3f5c;
+}
+
+.navbar-title {
+  color: #3b3f5c;
+  font-size: 19px;
+}
+
+.widget-chart-one thead {
+  background-color: #3b3f5c;
+}
+
+.sale-details {
+  max-height: 650px;
+  overflow: hidden;
+}
+
+.sale-details thead {
+  background-color: #3b3f5c;
+}
+
+.sale-denomination-input-side {
+  background-color: #3b3f5c !important;
+  color: white !important;
+}
+
+
+/* HEADER */
+.navbar .navbar-item .nav-item form.form-inline input.search-form-control {
+  background-color: #3b3f5c;
+  color: #ffffff;
+}
+
+.navbar .navbar-item .nav-item.search-animated svg {
+  color: #ffffff;
+}
+
+
+/* SIDEBAR */
+.sidebar-theme #compactSidebar {
+  background-color: #192e3a;
+}
+
+.header-container .sidebarCollapse {
+  color: #3b3f5c;
+}
+
+
+@media (max-width: 767px) {
+  .navbar .navbar-item .nav-item form.form-inline input.search-form-control {
+    color: #3b3f5c;
+  }
+
+  .navbar .navbar-item .nav-item.search-animated svg {
+    color: #3b3f5c ;
+  }
+}
+
+@media (max-width: 480px) {
+  .mtmobile {
+    margin-bottom: 20px !important;
+  }
+
+  .mbmobile {
+    margin-bottom: 10px !important;
+  }
+
+  .hideonsm {
+    display: none !important;
+  }
+
+  .inblock {
+    display: block;
+  }
+}
