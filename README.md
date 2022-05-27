@@ -21,6 +21,14 @@ ejemplo : git push origin main
 
 -git log
 
+para hacer una nueva rama
+git checkout -b luis
+
+para actualizar en el server
+git push origin [rama]:luis or main or xxxx
+
+para traer un cambio
+git pull origin [rama]
 
 -Instalamos livewire y lo publicamos para que aparezca en la carpeta config.
 

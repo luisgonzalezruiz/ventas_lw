@@ -1,5 +1,5 @@
 
-<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&display=swap" rel="stylesheet">
+{{-- <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&display=swap" rel="stylesheet"> --}}
 
 <link href="{{ asset('theme/css/loader.css') }}" rel="stylesheet" type="text/css" />
 
@@ -10,8 +10,8 @@
 <link href="{{ asset('theme/css/dashboard/dash_2.css') }}" rel="stylesheet" type="text/css" class="dashboard-sales" />
 <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
 
-{{-- <link href="{{ asset('theme/plugins/font-icons/fontawesome/css/fontawesome.css') }}" rel="stylesheet" type="text/css">
-<link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet" type="text/css" /> --}}
+{{-- <link href="{{ asset('theme/plugins/font-icons/fontawesome/css/fontawesome.css') }}" rel="stylesheet" type="text/css"> --}}
+<link href="{{ asset('extra/fontawesome-free/css/all.css') }}" rel="stylesheet" type="text/css" />
 
 <!-- Styles -->
 {{-- <link href="{{ asset('theme/css/custom.css') }}" rel="stylesheet" type="text/css" /> --}}

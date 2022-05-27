@@ -41,6 +41,7 @@
 
             <div id="content" class="main-content">
                 <div class="layout-px-spacing">
+                    {{-- Aqui va renderizar todo lo que venga del componente --}}
                     @yield('content')
                 </div>
             </div>
