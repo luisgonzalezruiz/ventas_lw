@@ -32,7 +32,8 @@ git pull origin [rama]
 
 -Instalamos livewire y lo publicamos para que aparezca en la carpeta config.
 
-
+Para personalizar una paginacion debemos hacer los siguiente
+php artisan livewire:publish --pagination
 
 
 
