@@ -66,4 +66,14 @@ class Categories extends Component
                 ->section('content');
     }
 
+    public function edit(Category $category)
+    {
+        $this->authorize('update', $category, Category::class);
+
+        $this->object = $category;
+        $this->image  = null;
+        $this->emit('show-modal', 'show modal');
+    }
+
+
 }

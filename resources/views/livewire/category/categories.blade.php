@@ -48,7 +48,7 @@
                                             title="Editar"
                                             wire:click="edit({{ $category->id }})"
                                         >
-                                            <i class="fa-regular fa-pen-to-square"></i>
+                                            <i class="fas fa-edit"></i>
                                     </a>
 
                                     <a
@@ -57,7 +57,7 @@
                                         title="Borrar"
                                         onclick="confirm('deleteCategory', {{ $category->id }})"
                                     >
-                                        <i class="fa-solid fa-trash"></i>
+                                        <i class="fas fa-trash"></i>
                                     </a>
 
                                 </td>
