@@ -237,7 +237,7 @@ code {
   max-width: 58.333333%;
   margin-left: 80px; }
 
-/* 
+/*
 =====================
     Navigation Bar
 =====================
@@ -268,7 +268,7 @@ code {
   list-style: none; }
 
 .header-container .sidebarCollapse {
-  color: #5c1ac3; }
+  color: #4b01c3; }
   .header-container .sidebarCollapse svg {
     width: 27px;
     height: 27px; }
@@ -706,7 +706,7 @@ code {
       color: #56478e;
       fill: rgba(86, 71, 142, 0.34); }
 
-/* 
+/*
 ===============
     Sidebar
 ===============
@@ -967,7 +967,7 @@ code {
   -webkit-animation-name: e-fadeInUp;
   animation-name: e-fadeInUp; }
 
-/*  
+/*
     ======================
         Footer-wrapper
     ======================
@@ -1001,7 +1001,7 @@ code {
   height: 15px;
   vertical-align: text-top; }
 
-/*  
+/*
     ======================
         MEDIA QUERIES
     ======================

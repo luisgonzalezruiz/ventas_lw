@@ -34,6 +34,13 @@ git pull origin [rama]
 
 Para personalizar una paginacion debemos hacer los siguiente
 php artisan livewire:publish --pagination
+y una vez publicada la paginacion creamos el siguiente metodo en el componente
+
+// de esta forma especificamos que queremos usar una paginacion personalizada
+public function paginationView()
+{
+    return 'vendor.livewire.bootstrap';
+}
 
 
 

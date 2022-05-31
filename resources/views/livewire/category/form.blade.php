@@ -1,3 +1,4 @@
+
 @include('common.modalHead')
 
 <div class="row">
@@ -44,3 +45,4 @@
 </div>
 
 @include('common.modalFooter')
+
