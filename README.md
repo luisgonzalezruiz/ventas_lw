@@ -1,8 +1,6 @@
 Esto es una prueba
 Siguiente prueba
 
-Esto es genial por que ya aprendi a sincronizar mi proyecto para seguridad
-
 usamos github para mantener el backup
 instalamos el git
 -abrimos gitbash
