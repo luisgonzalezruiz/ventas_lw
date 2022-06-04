@@ -20,25 +20,28 @@ class Category extends Model
         'image'
     ];
 
-    /**
-     * The "booted" method of the model.
-     *
-     * @return void
-     */
-    protected static function booted()
+    /*protected static function booted()
     {
         //Remove the image when delete object.
         static::deleted(function ($category) {
             Storage::disk('categories')->delete($category->image ?? '');
         });
-    }
+    } */
 
-    /**
-     * Products
-     */
+
     public function products()
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function getImagenAttribute(){
+
+        // asi valida la ruta a partir del public/storage/categories/imagen.jpg
+        if(file_exists('storage/' . $this->image))
+            return $this->image;
+        else
+            // esta imagen esta en la carpeta storage que es la publica
+            return 'noimg.png';
     }
 
     public function canDelete()

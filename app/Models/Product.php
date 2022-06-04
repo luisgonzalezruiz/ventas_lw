@@ -39,20 +39,20 @@ class Product extends Model
      *
      * @return void
      */
-    protected static function booted()
+/*     protected static function booted()
     {
         //Remove the image when delete object.
         static::deleted(function ($product) {
             Storage::disk('products')->delete($product->image);
         });
-    }
+    } */
 
-    public function scopeByBarcode($query, $barcode = '') 
+    public function scopeByBarcode($query, $barcode = '')
     {
         $query->where('barcode', $barcode);
     }
 
-    public function scopeOrCategoryName($query, $categoryName = '') 
+    public function scopeOrCategoryName($query, $categoryName = '')
     {
         $query->orWhereHas('category', function($query) use ($categoryName) {
             $query->where('name', 'like', "%$categoryName%");

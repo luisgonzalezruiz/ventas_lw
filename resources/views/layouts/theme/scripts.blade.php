@@ -11,8 +11,10 @@
 <script src="{{ asset('theme/plugins/notification/snackbar/snackbar.min.js') }}" defer></script>
 <script src="{{ asset('theme/plugins/nicescroll/nicescroll.js') }}" defer></script>
 <script src="{{ asset('theme/plugins/currency/currency.js') }}" defer></script>
-<script src="{{ asset('vendor/dmauro-Keypress/keypress-2.1.5.min.js') }}" defer></script>
-<script src="{{ asset('vendor/onscan/onscan.min.js') }}" defer></script>
+
+{{-- <script src="{{ asset('vendor/dmauro-Keypress/keypress-2.1.5.min.js') }}" defer></script>
+<script src="{{ asset('vendor/onscan/onscan.min.js') }}" defer></script> --}}
+
 <script src="https://cdn.jsdelivr.net/npm/flatpickr" defer></script>
 <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
 
