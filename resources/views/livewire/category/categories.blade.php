@@ -38,7 +38,6 @@
                                     <span>
                                         <img src="{{Storage::url($category->imagen)}}"
                                             alt="imagen de ejemplo" height="60" width="60" class="rounded">
-
                                     </span>
                                 </td>
                                 <td class="text-center">

@@ -18,10 +18,8 @@ class Categories extends Component
 
     use AuthorizesRequests;
 
-    //protected $paginationTheme = 'bootstrap';
-    //protected $listeners       = [
-    //    'deleteCategory' => 'destroy'
-    //];
+    protected $paginationTheme = 'bootstrap';
+
 
     public $name, $selected_id; //?Category $object;
     public $search;
@@ -49,11 +47,13 @@ class Categories extends Component
         $this->resetPage();
     }
 
+
     // de esta forma especificamos que queremos usar una paginacion personalizada
-    public function paginationView()
-    {
-        return 'vendor.livewire.bootstrap';
-    }
+    //public function paginationView()
+    //{
+    //    return 'vendor.livewire.bootstrap';
+    //}
+
 
     public function render()
     {
