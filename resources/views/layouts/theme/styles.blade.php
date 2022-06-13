@@ -3,6 +3,8 @@
 
 <link href="{{ asset('theme/css/loader.css') }}" rel="stylesheet" type="text/css" />
 
+{{-- <link href="{{ asset('theme/css/main.css') }}" rel="stylesheet" type="text/css" /> --}}
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 <link href="{{ asset('theme/css/plugins.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('theme/css/structure.css') }}" rel="stylesheet" type="text/css" class="structure" />
@@ -14,7 +16,7 @@
 <link href="{{ asset('extra/fontawesome-free/css/all.css') }}" rel="stylesheet" type="text/css" />
 
 <!-- Styles -->
-{{-- <link href="{{ asset('theme/css/custom.css') }}" rel="stylesheet" type="text/css" /> --}}
+<link href="{{ asset('theme/css/custom.css') }}" rel="stylesheet" type="text/css" />
 
 <style>
     aside {
@@ -44,7 +46,18 @@
         .inblock {
             display: block;
         }
+
     }
+
+    /*
+    .sidebar-theme #compactSidebar{
+        background: #191e3a !important;
+    }
+    .header-container .sidebarCollapse {
+         color: #3b3f5c !important;
+    } */
+
+
 
 </style>
 

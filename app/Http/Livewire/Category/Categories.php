@@ -20,7 +20,6 @@ class Categories extends Component
 
     protected $paginationTheme = 'bootstrap';
 
-
     public $name, $selected_id; //?Category $object;
     public $search;
     public $image;
@@ -47,13 +46,11 @@ class Categories extends Component
         $this->resetPage();
     }
 
-
     // de esta forma especificamos que queremos usar una paginacion personalizada
     //public function paginationView()
     //{
     //    return 'vendor.livewire.bootstrap';
     //}
-
 
     public function render()
     {
@@ -75,7 +72,6 @@ class Categories extends Component
         // de esta forma estamos especificando las columnas a recuperar, son buenas practicas
         // al no especificar, devuelve todas las filas
         $record = Category::find($id,['id','name','image']);
-
         $this->name = $record->name;
         $this->selected_id = $record->id;
         $this->image = null;
@@ -112,7 +108,6 @@ class Categories extends Component
 
             //$this->image->storeAs('public/categories',$customFileName);
             $url = Storage::put('categories', $this->image);
-
 
             // aqui actualizamos el registro con el path de la imagen
             $category->image = $url; //$customFileName;
