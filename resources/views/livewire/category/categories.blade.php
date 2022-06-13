@@ -23,9 +23,9 @@
                     <table class="table table-bordered table-hover table-sm table-striped mt-1">
                         <thead class="text-white" style ="background: #3B3F5C">
                             <tr>
-                                <th class="table-th text-white">DESCRIPCION</th>
-                                <th class="table-th text-white">IMAGEN</th>
-                                <th class="table-th text-white">ACCIONES</th>
+                                <th class="table-th text-white">Descripcion</th>
+                                <th class="table-th text-white">Imagen</th>
+                                <th class="table-th text-white">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
