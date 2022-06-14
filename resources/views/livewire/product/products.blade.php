@@ -27,7 +27,6 @@
                                 <th class="table-th text-white">Categoria</th>
                                 <th class="table-th text-white">Precio</th>
                                 <th class="table-th text-white">Stock</th>
-                                <th class="table-th text-white">Inv.Min</th>
                                 <th class="table-th text-white">Imagen</th>
                                 <th class="table-th text-white">Acciones</th>
                             </tr>
@@ -61,7 +60,7 @@
 
                                     {{-- @if( $product->products->count()> 1) --}}
                                         <a href="javascript:void(0)" class="btn btn-dark mtmobile" title="Borrar"
-                                            onclick="confirm({{ $product->id }}, {{ $product->products->count() }})">
+                                            onclick="confirm({{ $product->id }}, {{ 0 }})">
                                             <i class="fas fa-trash fa-xs"></i>
                                         </a>
                                     {{-- @endif --}}
@@ -85,7 +84,7 @@
 
     </div>
 
-    @include('livewire.category.form')
+    @include('livewire.product.form')
 
 </div>
 
@@ -99,14 +98,14 @@ document.addEventListener('DOMContentLoaded', function(){
         $('#theModal').modal('show')
     });
 
-    window.livewire.on('category-added',msg =>{
+    window.livewire.on('product-added',msg =>{
         $('#theModal').modal('hide')
     });
 
-    window.livewire.on('category-updated',msg =>{
+    window.livewire.on('product-updated',msg =>{
         $('#theModal').modal('hide')
     });
-    window.livewire.on('category-deleted',msg =>{
+    window.livewire.on('product-deleted',msg =>{
         console.log('Registro eliminado')
     });
 

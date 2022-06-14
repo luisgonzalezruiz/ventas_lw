@@ -31,6 +31,16 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function getImagenAttribute(){
+
+        // asi valida la ruta a partir del public/storage/categories/imagen.jpg
+        if(file_exists('storage/' . $this->image))
+            return $this->image;
+        else
+            // esta imagen esta en la carpeta storage que es la publica
+            return 'noimg.png';
+    }
+
 /*  protected static function booted()
     {
         //Remove the image when delete object.

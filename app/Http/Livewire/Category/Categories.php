@@ -118,6 +118,7 @@ class Categories extends Component
         //$this->emit('noty','Registro grabado!!!');
         $this->emit('category-added','Categoria Registrada');
         $this->resetUI();
+
     }
 
     public function update(){

@@ -34,8 +34,8 @@ class Category extends Model
         return $this->hasMany(Product::class);
     }
 
+    // este accesor lo usamos en todo
     public function getImagenAttribute(){
-
         // asi valida la ruta a partir del public/storage/categories/imagen.jpg
         if(file_exists('storage/' . $this->image))
             return $this->image;
