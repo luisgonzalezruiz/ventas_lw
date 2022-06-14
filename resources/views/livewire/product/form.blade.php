@@ -108,12 +108,14 @@
     <div class="col-12 col-md-4">
         <div class="form-group">
             <label>Categoría</label>
+
             <select class="form-control" wire:model.lazy="object.category_id">
                 <option value="">Elejir</option>
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
             </select>
+
             @error('object.category_id')
                 <span class="text-danger er">
                     {{ $message }}
