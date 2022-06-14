@@ -26,20 +26,12 @@ class Product extends Model
         'category_id'
     ];
 
-    /**
-     * Category
-     */
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-    /**
-     * The "booted" method of the model.
-     *
-     * @return void
-     */
-/*     protected static function booted()
+/*  protected static function booted()
     {
         //Remove the image when delete object.
         static::deleted(function ($product) {
@@ -47,7 +39,7 @@ class Product extends Model
         });
     } */
 
-    public function scopeByBarcode($query, $barcode = '')
+/*  public function scopeByBarcode($query, $barcode = '')
     {
         $query->where('barcode', $barcode);
     }
@@ -62,5 +54,6 @@ class Product extends Model
     public function canDelete()
     {
         return true;
-    }
+    } */
+
 }

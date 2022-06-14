@@ -39,16 +39,13 @@
                                     <h6>{{ $product->name }}</h6>
                                 </td>
                                 <td>
-                                    <h6>{{ $product->name }}</h6>
+                                    <h6>{{ $product->category_id }}</h6>
                                 </td>
                                 <td>
-                                    <h6>{{ $product->name }}</h6>
+                                    <h6>{{ $product->price }}</h6>
                                 </td>
                                 <td>
-                                    <h6>{{ $product->name }}</h6>
-                                </td>
-                                <td>
-                                    <h6>{{ $product->name }}</h6>
+                                    <h6>{{ $product->stock }}</h6>
                                 </td>
                                 <td class="text-center">
                                     <span>
