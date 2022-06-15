@@ -6,11 +6,11 @@
             <label>Nombre</label>
             <input
                 type="text"
-                wire:model.lazy="name"
+                wire:model.lazy="object.name"
                 class="form-control"
                 placeholder="Ej: Curso Laravel"
             >
-            @error('name')
+            @error('object.name')
                 <span class="text-danger er">
                     {{ $message }}
                 </span>
@@ -23,11 +23,11 @@
             <label>Código</label>
             <input
                 type="text"
-                wire:model.lazy="barcode"
+                wire:model.lazy="object.barcode"
                 class="form-control"
                 placeholder="Ej: 002932"
             >
-            @error('barcode')
+            @error('object.barcode')
                 <span class="text-danger er">
                     {{ $message }}
                 </span>
@@ -40,12 +40,12 @@
             <label>Costo</label>
             <input
                 type="text"
-                wire:model.lazy="cost"
+                wire:model.lazy="object.cost"
                 class="form-control"
                 placeholder="Ej: 1.00"
                 data-type="currency"
             >
-            @error('cost')
+            @error('object.cost')
                 <span class="text-danger er">
                     {{ $message }}
                 </span>
@@ -58,12 +58,12 @@
             <label>Precio</label>
             <input
                 type="text"
-                wire:model.lazy="price"
+                wire:model.lazy="object.price"
                 class="form-control"
                 placeholder="Ej: 1.00"
                 data-type="currency"
             >
-            @error('price')
+            @error('object.price')
                 <span class="text-danger er">
                     {{ $message }}
                 </span>
@@ -76,11 +76,11 @@
             <label>Stock</label>
             <input
                 type="number"
-                wire:model.lazy="stock"
+                wire:model.lazy="object.stock"
                 class="form-control"
                 placeholder="Ej: 100"
             >
-            @error('stock')
+            @error('object.stock')
                 <span class="text-danger er">
                     {{ $message }}
                 </span>
@@ -93,11 +93,11 @@
             <label>Inv.Minimo</label>
             <input
                 type="number"
-                wire:model.lazy="alerts"
+                wire:model.lazy="object.alerts"
                 class="form-control"
                 placeholder="Ej: 100"
             >
-            @error('alerts')
+            @error('object.alerts')
                 <span class="text-danger er">
                     {{ $message }}
                 </span>
@@ -109,14 +109,14 @@
         <div class="form-group">
             <label>Categoría</label>
 
-            <select class="form-control" wire:model.lazy="category_id">
-                <option value="Elegir" disabled>Elegir</option>
+            <select class="form-control" wire:model.lazy="object.category_id">
+                <option value="">Elejir</option>
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
             </select>
 
-            @error('category_id')
+            @error('object.category_id')
                 <span class="text-danger er">
                     {{ $message }}
                 </span>
@@ -133,7 +133,7 @@
                 accept="image/x-png, image/gif, image/jpeg"
             >
             <label class="custom-file-label">
-                Imágen {{ $image }}
+                Imágen {{ $image ?? ($object->image ?? '') }}
             </label>
 
             @error('image')
@@ -143,7 +143,6 @@
             @enderror
         </div>
     </div>
-
 </div>
 
 @include('common.modalFooter')

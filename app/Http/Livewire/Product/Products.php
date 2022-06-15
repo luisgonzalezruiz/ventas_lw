@@ -10,7 +10,7 @@ use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+//use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 
 class Products extends Component
@@ -18,7 +18,7 @@ class Products extends Component
     use WithFileUploads;
     use WithPagination;
 
-    use AuthorizesRequests;
+    //use AuthorizesRequests;
 
     protected $paginationTheme = 'bootstrap';
     //escuchamos eventos emitidos desde la vista
@@ -29,19 +29,22 @@ class Products extends Component
     public $pageTitle;
     public $componentName;
 
-    //public $name, $barcode, $cost, $price, $stock, $alerts, $image, $category_id, $selected_id;
-    public $object;
-    public $image;
+    public $name, $barcode, $cost, $price, $stock, $alerts, $image, $category_id, $selected_id;
+    //public $object;
+    //public $image;
 
     public function mount()
     {
         // al $object lo defino como un objeto de tipo Product()
-        $this->object = new Product();
+        //$this->object = new Product();
 
         $this->pageTitle     = 'Listado';
         $this->componentName = 'Productos';
         $this->pagination    = 5;
         $this->search        = '';
+        $this->selected_id = 0;
+        $this->category_id = "Elegir";
+
         //$this->object        = null;
     }
 
@@ -56,10 +59,17 @@ class Products extends Component
         $categories =  Category::orderBy('name', 'desc')->get();
 
         if (strlen($this->search)) {
-            $products = Product::where('name', 'like', '%'.$this->search.'%')
-                ->orderBy('id', 'desc')->paginate($this->pagination);
+            $products = Product::join('categories as c','c.id','products.category_id')
+                    ->select('products.*','c.name as category')
+                    ->where('products.name', 'like', '%'.$this->search.'%')
+                    ->orWhere('products.barcode', 'like', '%'.$this->search.'%')
+                    ->orWhere('c.name', 'like', '%'.$this->search.'%')
+                    ->orderBy('id', 'desc')->paginate($this->pagination);
+
         } else {
-            $products = Product::orderBy('id', 'desc')->paginate($this->pagination);
+            $products = Product::join('categories as c','c.id','products.category_id')
+                    ->select('products.*','c.name as category')
+                    ->orderBy('id', 'desc')->paginate($this->pagination);
         }
 
         return view('livewire.product.products', compact('products','categories'))
@@ -68,26 +78,28 @@ class Products extends Component
 
     }
 
-    protected function rules()
+    protected function rules_old()
     {
         //Unique validation need the id on update.
         $uniqueName = 'unique:products,name';
         $uniqueCode = 'unique:products,barcode';
-        if ($this->object->exists ?? false) {
-            $uniqueName .= ",{$this->object->id}";
-            $uniqueCode .= ",{$this->object->id}";
+        if ($this->selected_id > 0) {
+            $uniqueName .= ",{$this->selected_id}";
+            $uniqueCode .= ",{$this->selected_id}";
         }
 
         return [
-            'object.name'        => "required|string|$uniqueName|min:3",
-            'object.barcode'     => "required|string|$uniqueCode|min:1",
-            'object.cost'        => "required|numeric|min:0",
-            'object.price'       => "required|numeric|min:0",
-            'object.stock'       => "required|numeric|min:0",
-            'object.alerts'      => "required|numeric|min:0",
-            'object.category_id' => 'required|integer|min:1|exists:categories,id',
-            'image'              => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'name'        => "required|string|$uniqueName|min:3",
+                'barcode'     => "required|string|$uniqueCode|min:1",
+                'cost'        => "required|numeric|min:0",
+                'price'       => "required|numeric|min:0",
+                'stock'       => "required|numeric|min:0",
+                'alerts'      => "required|numeric|min:0",
+                'category_id' => 'required|integer|min:1|exists:categories,id',
+                'image'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
+
+
     }
 
     public function new()
@@ -120,8 +132,37 @@ class Products extends Component
 
     public function store()
     {
+        $uniqueName = 'unique:products,name';
+        $uniqueCode = 'unique:products,barcode';
+        if ($this->selected_id > 0) {
+            $uniqueName .= ",{$this->selected_id}";
+            $uniqueCode .= ",{$this->selected_id}";
+        }
+
+        //'category_id' => 'required|integer|min:1|exists:categories,id|not_in:0',
+        $rules=[
+            'name'        => "required|string|$uniqueName|min:3",
+            'barcode'     => "required|string|$uniqueCode|min:1",
+            'cost'        => "required|numeric|min:0",
+            'price'       => "required|numeric|min:0",
+            'stock'       => "required|numeric|min:0",
+            'alerts'      => "required|numeric|min:0",
+            'category_id' => 'required|not_in:Elegir',
+            'image'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ];
+        $messages = [
+            'name.required' => 'Nombre es requerido',
+            'name.unique' => 'Nombre ya existe',
+            'name.min'=> 'Nombre debe tener minimo 3 digitos',
+            'cost.required' => 'Costo es requerido',
+            'price.required' => 'Precio es requerido',
+            'stock.required' => 'Stock es requerido',
+            'alerts.required' => 'Ingresa el valor minimo en stock',
+            'category_id.not_in' => 'Elige una categoria valida',
+        ];
+
         // ejecutamos la validacion
-        $this->validate();
+        $this->validate($rules,$messages);
 
         if ($this->image) {
             //$this->object->image = $this->image->store(null, 'products');

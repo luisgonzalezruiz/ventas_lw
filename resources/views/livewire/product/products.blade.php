@@ -23,29 +23,23 @@
                     <table class="table table-bordered table-hover table-sm table-striped mt-1">
                         <thead class="text-white" style ="background: #3B3F5C">
                             <tr>
+                                <th class="table-th text-white">Code Bar</th>
                                 <th class="table-th text-white">Nombre</th>
                                 <th class="table-th text-white">Categoria</th>
-                                <th class="table-th text-white">Precio</th>
-                                <th class="table-th text-white">Stock</th>
-                                <th class="table-th text-white">Imagen</th>
-                                <th class="table-th text-white">Acciones</th>
+                                <th class="table-th text-white text-right">Precio</th>
+                                <th class="table-th text-white text-right">Stock</th>
+                                <th class="table-th text-white text-center">Imagen</th>
+                                <th class="table-th text-white text-center">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($products as $product)
                             <tr>
-                                <td>
-                                    <h6>{{ $product->name }}</h6>
-                                </td>
-                                <td>
-                                    <h6>{{ $product->category_id }}</h6>
-                                </td>
-                                <td>
-                                    <h6>{{ $product->price }}</h6>
-                                </td>
-                                <td>
-                                    <h6>{{ $product->stock }}</h6>
-                                </td>
+                                <td><h6>{{ $product->barcode }}</h6></td>
+                                <td><h6>{{ $product->name }}</h6></td>
+                                <td><h6>{{ $product->category }}</h6> </td>
+                                <td class="text-right"><h6>{{ $product->price }}</h6></td>
+                                <td class="text-right"><h6>{{ $product->stock }}</h6></td>
                                 <td class="text-center">
                                     <span>
                                         <img src="{{Storage::url($product->imagen)}}"
@@ -92,9 +86,6 @@
 document.addEventListener('DOMContentLoaded', function(){
     // escuchamos el evento que viene del backend
     window.livewire.on('show-modal',msg =>{
-        //console.log(msg)
-        // de esta forma llamamos a la funcion que esta por afuera
-        //test()
         $('#theModal').modal('show')
     });
 
@@ -107,6 +98,15 @@ document.addEventListener('DOMContentLoaded', function(){
     });
     window.livewire.on('product-deleted',msg =>{
         console.log('Registro eliminado')
+    });
+
+    window.livewire.on('modal-hide',msg =>{
+        $('#theModal').modal('hide')
+    });
+    window.livewire.on('hidden.bs.modal',msg =>{
+        // de esta forma ocultamos todos los elementos que tengan la clase "er", fijarse en la parte donde mostrarmos errores
+        // en el modal
+        $('.er').css('display','none')
     });
 
 });
