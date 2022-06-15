@@ -164,12 +164,25 @@ class Products extends Component
         // ejecutamos la validacion
         $this->validate($rules,$messages);
 
+        // aqui insertamos el registro
+        $product = new Product();
+        $product->name = $this->name;
+        $product->barcode = $this->barcode;
+        $product->cost = $this->cost;
+        $product->price = $this->price;
+        $product->stock = $this->stock;
+        $product->alerts = $this->alerts;
+        $product->category_id= $this->category_id;
+
         if ($this->image) {
-            //$this->object->image = $this->image->store(null, 'products');
-            $this->object->image = Storage::put('products', $this->image);
+            $product->image = Storage::put('products', $this->image);
         }
 
-        $this->object->save();
+        $product->save();
+
+        //$this->emit('category-added','Categoria Registrada');
+        //$this->resetUI();
+
         $this->emit('noty', 'Agregado nuevo producto');
         $this->resetUI();
 
@@ -196,10 +209,17 @@ class Products extends Component
 
     public function resetUI(){
 
-        $this->object = null;
+        $this->name = "";
+        $this->barcode = "";
+        $this->cost=0;
+        $this->price=0;
+        $this->stock=0;
+        $this->alerts=0;
+        $this->category_id="Elegir";
+
         $this->image  = null;
-        $this->resetValidation();
-        $this->emit('hide-modal', 'hide modal');
+        //$this->resetValidation();
+        $this->emit('modal-hide', 'Oculta el modal');
     }
 
 

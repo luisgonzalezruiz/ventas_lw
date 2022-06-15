@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     window.livewire.on('modal-hide',msg =>{
         $('#theModal').modal('hide')
+        console.log('entra aqui')
     });
     window.livewire.on('hidden.bs.modal',msg =>{
         // de esta forma ocultamos todos los elementos que tengan la clase "er", fijarse en la parte donde mostrarmos errores
