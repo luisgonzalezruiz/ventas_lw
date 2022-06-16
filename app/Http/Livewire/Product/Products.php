@@ -112,7 +112,7 @@ class Products extends Component
     public function edit(Product $product)
     {
         //$record = Product::find($id,['id','name','image']);
-        /*
+
         $this->name = $product->name;
         $this->barcode = $product->barcode;
         $this->cost = $product->cost;
@@ -122,10 +122,10 @@ class Products extends Component
         $this->image = null;
         $this->category_id = $product->category_id;
         $this->selected_id = $product->id;
-        */
 
-        $this->object = $product;
-        $this->image  = null;
+
+        //$this->object = $product;
+        //$this->image  = null;
         $this->emit('show-modal', 'show modal');
 
     }
@@ -190,19 +190,57 @@ class Products extends Component
 
     public function update(){
 
-        $this->validate();
+        //'category_id' => 'required|integer|min:1|exists:categories,id|not_in:0',
+        $rules=[
+            'name'=>"required|min:3|unique:products,name,$this->selected_id ",
+            'barcode'=>"required|min:3|unique:products,barcode,$this->selected_id ",
+            'cost'        => "required|numeric|min:0",
+            'price'       => "required|numeric|min:0",
+            'stock'       => "required|numeric|min:0",
+            'alerts'      => "required|numeric|min:0",
+            'category_id' => 'required|not_in:Elegir',
+            'image'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ];
+        $messages = [
+            'name.required' => 'Nombre es requerido',
+            'name.unique' => 'Nombre ya existe',
+            'name.min'=> 'Nombre debe tener minimo 3 digitos',
+            'cost.required' => 'Costo es requerido',
+            'price.required' => 'Precio es requerido',
+            'stock.required' => 'Stock es requerido',
+            'alerts.required' => 'Ingresa el valor minimo en stock',
+            'category_id.not_in' => 'Elige una categoria valida',
+        ];
 
-        if ($this->image) {
-            //Remove old file.
-            //Storage::disk('products')->delete($this->object->image);
-            Storage::delete($this->object->image);
-            //$this->object->image = $this->image->store(null, 'products');
-            $this->object->image =  Storage::put('products', $this->image);
+        // ejecutamos la validacion
+        $this->validate($rules,$messages);
+
+        // Actualizamos los datos
+        $product = Product::find($this->selected_id);
+        $product->name = $this->name;
+        $product->barcode = $this->barcode;
+        $product->cost = $this->cost;
+        $product->price = $this->price;
+        $product->stock = $this->stock;
+        $product->alerts = $this->alerts;
+        $product->category_id= $this->category_id;
+
+        // verificamos si el registro actual tiene una imagen asociada para borrarlo
+        $imageName = $product->image;
+        if($imageName != null){
+            Storage::delete($imageName);
         }
 
-        $this->object->save();
+        if ($this->image) {
+            $product->image = Storage::put('products', $this->image);
+        }
 
-        $this->emit('noty', "El producto {$this->object->name} fue actualizado correctamente");
+        $product->save();
+
+        //$this->emit('category-added','Categoria Registrada');
+        //$this->resetUI();
+
+        $this->emit('noty', 'Agregado nuevo producto');
         $this->resetUI();
 
     }
@@ -218,6 +256,9 @@ class Products extends Component
         $this->category_id="Elegir";
 
         $this->image  = null;
+        $this->selected_id  = 0;
+        $this->search = '';
+
         //$this->resetValidation();
         $this->emit('modal-hide', 'Oculta el modal');
     }

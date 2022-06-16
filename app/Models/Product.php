@@ -34,6 +34,10 @@ class Product extends Model
     public function getImagenAttribute(){
 
         // asi valida la ruta a partir del public/storage/categories/imagen.jpg
+        if($this->image==null) {
+            return 'noimg.png';
+        }
+
         if(file_exists('storage/' . $this->image))
             return $this->image;
         else

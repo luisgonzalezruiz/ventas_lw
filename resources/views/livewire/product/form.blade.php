@@ -6,7 +6,7 @@
             <label>Nombre</label>
             <input
                 type="text"
-                wire:model.lazy="name"
+                wire:model.defer="name"
                 class="form-control"
                 placeholder="Ej: Curso Laravel"
             >
@@ -23,7 +23,7 @@
             <label>Código</label>
             <input
                 type="text"
-                wire:model.lazy="barcode"
+                wire:model.defer="barcode"
                 class="form-control"
                 placeholder="Ej: 002932"
             >
@@ -40,7 +40,7 @@
             <label>Costo</label>
             <input
                 type="text"
-                wire:model.lazy="cost"
+                wire:model.defer="cost"
                 class="form-control"
                 placeholder="Ej: 1.00"
                 data-type="currency"
@@ -58,7 +58,7 @@
             <label>Precio</label>
             <input
                 type="text"
-                wire:model.lazy="price"
+                wire:model.defer="price"
                 class="form-control"
                 placeholder="Ej: 1.00"
                 data-type="currency"
@@ -76,7 +76,7 @@
             <label>Stock</label>
             <input
                 type="number"
-                wire:model.lazy="stock"
+                wire:model.defer="stock"
                 class="form-control"
                 placeholder="Ej: 100"
             >
@@ -93,7 +93,7 @@
             <label>Inv.Minimo</label>
             <input
                 type="number"
-                wire:model.lazy="alerts"
+                wire:model.defer="alerts"
                 class="form-control"
                 placeholder="Ej: 100"
             >
