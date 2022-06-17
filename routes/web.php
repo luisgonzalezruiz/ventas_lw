@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Livewire\Category\Categories;
+use App\Http\Livewire\Denomination\Denominations;
+use App\Http\Livewire\Pos\Pos;
 use \App\Http\Livewire\Product\Products;
 
 
@@ -16,7 +18,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware(['auth'])->group(function () {
     Route::get('/categories', Categories::class)->name('categories');
     Route::get('/products', Products::class)->name('products');
-
+    Route::get('/denominations', Denominations::class)->name('denominations');
+    Route::get('/pos', Pos::class)->name('pos');
     // Route::get('/products', Products::class)->name('products');
 /*     Route::get('/denominations', Denominations::class)->name('denominations');
     Route::get('/sales', Sales::class)->name('sales');

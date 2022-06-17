@@ -4,7 +4,7 @@
 
             {{-- @can('view_categories') --}}
                 <li>
-                    <a href="{{ route('home') }}" class="menu-toggle" data-active="true">
+                    <a href="{{ route('categories') }}" class="menu-toggle" data-active="true">
                         <div class="base-menu">
                             <div class="base-icons">
                                 <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
@@ -22,7 +22,7 @@
 
             {{-- @can('view_products') --}}
                 <li>
-                    <a href="{{ route('home') }}" class="menu-toggle" data-active="false">
+                    <a href="{{ route('products') }}" class="menu-toggle" data-active="false">
                         <div class="base-menu">
                             <div class="base-icons">
                                 <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
@@ -38,7 +38,7 @@
 
             {{-- @can('sales') --}}
                 <li>
-                    <a href="{{ route('home') }}" class="menu-toggle" data-active="false">
+                    <a href="{{ route('pos') }}" class="menu-toggle" data-active="false">
                         <div class="base-menu">
                             <div class="base-icons">
                                 <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
@@ -88,7 +88,7 @@
 
             {{-- @can('view_denominations') --}}
                 <li>
-                    <a href="{{ route('home') }}" class="menu-toggle" data-active="false">
+                    <a href="{{ route('denominations') }}" class="menu-toggle" data-active="false">
                         <div class="base-menu">
                             <div class="base-icons">
                                 <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">

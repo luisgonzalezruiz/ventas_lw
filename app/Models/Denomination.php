@@ -21,11 +21,20 @@ class Denomination extends Model
         'image'
     ];
 
-    /**
-     * The "booted" method of the model.
-     *
-     * @return void
-     */
+    public function getImagenAttribute(){
+
+        if($this->image==null) {
+            return 'noimg.png';
+        }
+
+        if(file_exists('storage/' . $this->image))
+            return $this->image;
+        else
+            // esta imagen esta en la carpeta storage que es la publica
+            return 'noimg.png';
+    }
+
+    /*
     protected static function booted()
     {
         //Remove the image when delete object.
@@ -38,4 +47,5 @@ class Denomination extends Model
     {
         return true;
     }
+    */
 }

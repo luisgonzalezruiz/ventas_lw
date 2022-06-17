@@ -102,13 +102,6 @@ class Products extends Component
 
     }
 
-    public function new()
-    {
-        $this->object = new Product();
-        $this->image  = null;
-        $this->emit('show-modal', 'show modal');
-    }
-
     public function edit(Product $product)
     {
         //$record = Product::find($id,['id','name','image']);
@@ -175,6 +168,10 @@ class Products extends Component
         $product->category_id= $this->category_id;
 
         if ($this->image) {
+            //$customFileName = uniqid() . '_.' . $this->image->extension();
+            //$this->image->storeAs('public/products',$customFileName);
+            //$product->image = 'products/' . $customFileName;
+
             $product->image = Storage::put('products', $this->image);
         }
 
@@ -183,8 +180,8 @@ class Products extends Component
         //$this->emit('category-added','Categoria Registrada');
         //$this->resetUI();
 
-        $this->emit('noty', 'Agregado nuevo producto');
         $this->resetUI();
+        $this->emit('noty', 'Agregado nuevo producto');
 
     }
 
@@ -225,13 +222,19 @@ class Products extends Component
         $product->alerts = $this->alerts;
         $product->category_id= $this->category_id;
 
-        // verificamos si el registro actual tiene una imagen asociada para borrarlo
-        $imageName = $product->image;
-        if($imageName != null){
-            Storage::delete($imageName);
-        }
 
         if ($this->image) {
+            // verificamos si el registro actual tiene una imagen asociada para borrarlo
+            $imageName = $product->image;
+            if($imageName != null){
+                Storage::delete($imageName);
+            }
+
+            //$customFileName = uniqid() . '_.' . $this->image->extension();
+            //$this->image->storeAs('public/products',$customFileName);
+            //$product->image = 'products/' . $customFileName;
+
+            // esto resume las tres lineas anteriores
             $product->image = Storage::put('products', $this->image);
         }
 
@@ -240,8 +243,8 @@ class Products extends Component
         //$this->emit('category-added','Categoria Registrada');
         //$this->resetUI();
 
-        $this->emit('noty', 'Agregado nuevo producto');
         $this->resetUI();
+        $this->emit('noty', 'Agregado nuevo producto');
 
     }
 
@@ -276,7 +279,7 @@ class Products extends Component
               Storage::delete($imageName);
         }
 
-        $this->emit('noty', "El producto {$this->object->name} fue actualizado correctamente");
+        $this->emit('noty', "El producto ha sido eliminado");
         $this->resetUI();
 
     }
