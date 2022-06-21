@@ -10,12 +10,8 @@
                         <span class="page-link" aria-hidden="true">&lsaquo;</span>
                     </li>
                 @else
-                    <li class="page-item prev">
-                        <button type="button" 
-                                dusk="previousPage{{ $paginator->getPageName() == 'page' ? '' : '.' . $paginator->getPageName() }}" 
-                                class="page-link prev" 
-                                wire:click="previousPage('{{ $paginator->getPageName() }}')" 
-                                wire:loading.attr="disabled" rel="prev" aria-label="@lang('pagination.previous')">&lsaquo;</button>
+                    <li class="page-item">
+                        <button type="button" dusk="previousPage{{ $paginator->getPageName() == 'page' ? '' : '.' . $paginator->getPageName() }}" class="page-link" wire:click="previousPage('{{ $paginator->getPageName() }}')" wire:loading.attr="disabled" rel="prev" aria-label="@lang('pagination.previous')">&lsaquo;</button>
                     </li>
                 @endif
 

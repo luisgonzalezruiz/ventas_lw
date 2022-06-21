@@ -21,6 +21,7 @@ class Products extends Component
     //use AuthorizesRequests;
 
     protected $paginationTheme = 'bootstrap';
+
     //escuchamos eventos emitidos desde la vista
     protected $listeners = [
         'deleteRow' => 'destroy'
@@ -32,6 +33,7 @@ class Products extends Component
     public $name, $barcode, $cost, $price, $stock, $alerts, $image, $category_id, $selected_id;
     //public $object;
     //public $image;
+
 
     public function mount()
     {
@@ -47,6 +49,12 @@ class Products extends Component
 
         //$this->object        = null;
     }
+
+     // de esta forma especificamos que queremos usar una paginacion personalizada
+    //public function paginationView()
+    //{
+    //    return 'vendor.livewire.bootstrap';
+    //}
 
     // limpiamos el buscador
     public function updatingSearch()

@@ -68,7 +68,9 @@
 
                     </table>
 
-                     {{ $products->links() }}
+                    <div  class="pagination-no_spacing">
+                        {{ $products->links() }}
+                    </div>
 
                 </div>
 

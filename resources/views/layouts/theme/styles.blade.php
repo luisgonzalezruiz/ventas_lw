@@ -16,7 +16,12 @@
 <link href="{{ asset('extra/fontawesome-free/css/all.css') }}" rel="stylesheet" type="text/css" />
 
 <!-- Styles -->
+{{-- <link href="{{ asset('theme/css/apps/scrumboard.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('theme/css/apps/notes.css') }}" rel="stylesheet" type="text/css" />
+ --}}
 <link href="{{ asset('theme/css/custom.css') }}" rel="stylesheet" type="text/css" />
+
+{{-- <link href="{{ asset('theme/css/elements/custom-pagination.css')}}" rel="stylesheet" type="text/css" /> --}}
 
 <style>
     aside {
