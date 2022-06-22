@@ -5,8 +5,11 @@
 <script src="{{ asset('theme/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}" defer></script>
 <script src="{{ asset('theme/js/app.js') }}" defer></script>
 
-<script src="{{ asset('theme/js/custom.js') }}" defer></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+
+<script src="{{ asset('theme/js/custom.js') }}" defer></script>
 <script src="{{ asset('theme/plugins/sweetalerts/sweetalert2.min.js') }}" defer></script>
 <script src="{{ asset('theme/plugins/notification/snackbar/snackbar.min.js') }}" defer></script>
 <script src="{{ asset('theme/plugins/nicescroll/nicescroll.js') }}" defer></script>
@@ -18,7 +21,11 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr" defer></script>
 <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
 
+
+{{-- este es del mixin --}}
 <script src="{{ asset('js/app.js') }}" defer></script>
+
+
 
 <script>
     window.onload = function() {
