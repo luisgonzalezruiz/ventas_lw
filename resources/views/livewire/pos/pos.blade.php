@@ -12,7 +12,7 @@
             @include('livewire.pos.partials.total')
             {{-- denominaciones --}}
             @include('livewire.pos.partials.denominations')
-            
+
         </div>
 
 
@@ -20,5 +20,8 @@
 </div>
 
 <script>
-
+ window.onload = function() {
+        initPosKeypress();
+        initOnScan();
+    };
 </script>

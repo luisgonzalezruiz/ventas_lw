@@ -2,11 +2,13 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" crossorigin="anonymous" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous" defer></script>
-<script src="{{ asset('theme/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}" defer></script>
+
+<script src="{{ asset('theme/plugins/perfect-scrollbar/perfectonScan-scrollbar.min.js') }}" defer></script>
+
 <script src="{{ asset('theme/js/app.js') }}" defer></script>
 
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+{{-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> --}}
 
 
 <script src="{{ asset('theme/js/custom.js') }}" defer></script>
@@ -15,8 +17,8 @@
 <script src="{{ asset('theme/plugins/nicescroll/nicescroll.js') }}" defer></script>
 <script src="{{ asset('theme/plugins/currency/currency.js') }}" defer></script>
 
-{{-- <script src="{{ asset('vendor/dmauro-Keypress/keypress-2.1.5.min.js') }}" defer></script>
-<script src="{{ asset('vendor/onscan/onscan.min.js') }}" defer></script> --}}
+<script src="{{ asset('vendor/dmauro-Keypress/keypress-2.1.5.min.js') }}" defer></script>
+<script src="{{ asset('vendor/onscan/onscan.min.js') }}" defer></script>
 
 <script src="https://cdn.jsdelivr.net/npm/flatpickr" defer></script>
 <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
@@ -66,6 +68,9 @@
     }
 
     function initPosKeypress() {
+
+        console.log('llegue al metodo initPosKeypress')
+
         var listener = new window.keypress.Listener();
 
         listener.simple_combo("f9", function() {
