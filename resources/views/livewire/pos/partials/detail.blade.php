@@ -3,7 +3,8 @@
         <div class="card simple-title-task ui-sortable-handle">
             <div class="card-body">
                 @if($total > 0)
-                    <div class="table-responsive tblscroll" style="max-height:650px; overflow:hidden">
+                    <div class="table-responsive tblscroll sale-details"
+                         style="height: 650px; overflow-y: scroll;">
                         <table class="table table-bordered table-striped mt-1">
                             <thead class="text-white" style="background: #3b3f5c">
                                 <tr>
@@ -42,13 +43,13 @@
                                             </h6>
                                         </td>
                                         <td class="text-center">
-                                            <button onclick="Confirm('{{ $item-id }}','removeItem','Confirmas eliminar?')" class="btn btn-dark mbmobile">
+                                            <button onclick="Confirm('{{ $item->id }}','removeItem','Confirmas eliminar?')" class="btn btn-dark mbmobile">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
-                                            <button wire:click.prevent="decreaseQty({{ $item->id }})" onclick="Confirm('{{ $item-id }}','removeItem','Confirmas eliminar?')" class="btn btn-dark mbmobile">
+                                            <button wire:click.prevent="decreaseQty({{ $item->id }})" onclick="Confirm('{{ $item->id }}','removeItem','Confirmas eliminar?')" class="btn btn-dark mbmobile">
                                                 <i class="fas fa-minus"></i>
                                             </button>
-                                            <button wire:click.prevent="increaseQty({{ $item->id }})" onclick="Confirm('{{ $item-id }}','removeItem','Confirmas eliminar?')" class="btn btn-dark mbmobile">
+                                            <button wire:click.prevent="increaseQty({{ $item->id }})" onclick="Confirm('{{ $item->id }}','removeItem','Confirmas eliminar?')" class="btn btn-dark mbmobile">
                                                 <i class="fas fa-plus"></i>
                                             </button>
                                         </td>
@@ -57,9 +58,9 @@
                             </tbody>
                         </table>
                     </div>
-                @else    
+                @else
                     <h5 class="text-center text-muted">Agrega productos a la venta</h5>
-                @endif    
+                @endif
                 <div wire:loading.inline wire:target="saveSale">
                     <h4 class="text-danger text-center">Guardando Venta...</h4>
                 </div>
@@ -68,3 +69,8 @@
         </div>
     </div>
 </div>
+
+<script>
+
+
+</script>

@@ -125,8 +125,4 @@ function confirm(id, products){
 }
 
 
-function test(){
-    console.log('Se ejecuto esta funcion')
-}
-
 </script>

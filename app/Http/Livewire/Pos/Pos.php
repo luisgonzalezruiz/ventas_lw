@@ -21,7 +21,7 @@ class Pos extends Component
     {
         $this->efectivo = 0;
         $this->change=0;
-        $this->total = 10; //Cart::getTotal();
+        $this->total = Cart::getTotal();
         $this->itemsQuantity = Cart::getTotalQuantity();
 
     }
@@ -53,10 +53,10 @@ class Pos extends Component
     public function scanCode($barcode, $cant = 1)
     {
 
-        dd($barcode);
+        //dd($barcode);
 
-        $product = Product::where('carcode',$barcode)->first();
-        if($product == null || empty($empty)){
+        $product = Product::where('barcode',$barcode)->first();
+        if( $product == null ){
             $this->emit('scan-notfount','El producto no esta registrado');
         }else{
 
@@ -188,6 +188,7 @@ class Pos extends Component
 
     public function clearCart()
     {
+
         Cart::clear();
         $this->efectivo = 0;
         $this->change = 0;
