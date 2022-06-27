@@ -11,7 +11,7 @@
 <script src="{{ asset('theme/plugins/sweetalerts/sweetalert2.min.js') }}" defer></script>
 <script src="{{ asset('theme/plugins/notification/snackbar/snackbar.min.js') }}" defer></script>
 
-<script src="{{ asset('theme/plugins/nicescroll/jquery.nicescroll.js') }}" defer></script>
+<script src="{{ asset('theme/plugins/nicescroll/nicescroll.js') }}" defer></script>
 
 <script src="{{ asset('theme/plugins/currency/currency.js') }}" defer></script>
 
@@ -56,7 +56,6 @@ window.onload = function() {
             cursorborderradius: 7
         });
     }
-
 
     function initOnScan() {
         try {
@@ -123,6 +122,7 @@ window.onload = function() {
         });
     }
 
+    // este metodo es llamado desde los formulario, normalmente para eliminar un registro
     function Confirm(event, id, text = '¿CONFIRMAS ELIMINAR EL REGISTRO?') {
         swal({
             title: 'CONFIRMAR',

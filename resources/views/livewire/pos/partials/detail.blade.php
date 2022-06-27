@@ -3,8 +3,7 @@
         <div class="card simple-title-task ui-sortable-handle">
             <div class="card-body">
                 @if($total > 0)
-                    <div class="table-responsive tblscroll sale-details"
-                         style="height: 650px; overflow-y: scroll;">
+                    <div class="table-responsive tblscroll sale-details-old">
                         <table class="table table-bordered table-striped mt-1">
                             <thead class="text-white" style="background: #3b3f5c">
                                 <tr>

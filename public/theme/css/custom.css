@@ -28,7 +28,7 @@ aside {
 
 .sale-details {
   max-height: 650px;
-  overflow: hidden;
+  overflow-y: hidden;
 }
 
 .sale-details thead {

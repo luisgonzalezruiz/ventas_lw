@@ -25,6 +25,11 @@
 {{-- <link href="{{ asset('theme/css/elements/custom-pagination.css')}}" rel="stylesheet" type="text/css" /> --}}
 
 <style>
+.tblscroll {
+    height:650px;
+    background-color: rgba(210, 208, 174, 0.858);
+    overflow-y: scroll;
+}
 
 </style>
 

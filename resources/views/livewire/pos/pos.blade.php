@@ -12,12 +12,12 @@
 {{-- <script src="{{ asset('vendor/dmauro-Keypress/keypress-2.1.5.min.js') }}" defer></script>
 <script src="{{ asset('vendor/onscan/onscan.min.js') }}" defer></script> --}}
 
-<script>
-     window.onload = function() {
+{{-- <script>
+      window.onload = function() {
         initPosKeypress();
         initOnScan();
     };
-</script>
+</script> --}}
 
 {{-- @include('livewire.pos.scripts.general')
 @include('livewire.pos.scripts.shortcuts')

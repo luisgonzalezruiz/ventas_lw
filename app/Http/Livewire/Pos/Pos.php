@@ -75,6 +75,7 @@ class Pos extends Component
                       $cant,
                       $product->image);
             $this->total = Cart::getTotal();
+            $this->itemsQuantity = Cart::getTotalQuantity();
             $this->emit('scan-ok','Producto agregado');
         }
     }
