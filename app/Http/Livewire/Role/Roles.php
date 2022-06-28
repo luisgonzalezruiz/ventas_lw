@@ -35,7 +35,7 @@ class Roles extends Component
         $this->componentName = 'Roles';
         $this->pagination    = 5;
         $this->search        = '';
-        $this->selectedPermissions = [];
+        $this->selectedPermissions=[];
     }
 
     // limpiamos el buscador
@@ -114,13 +114,25 @@ class Roles extends Component
 
         $this->name  = $role->name;
         $this->selected_id = $role->id;
-        $this->selectedPermissions = $role->getPermissionNames();
+
+        //$this->selectedPermissions = $role->permissions->pluck('name','id');  //$role->getPermissionNames();
+
+        $this->selectedPermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id",$role->id)
+                    ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')
+                    ->all();
+
+/*         $permissions = Permission::all()->pluck('name', 'id');
+        $role->load('permissions'); */
+
+        //dd($this->selectedPermissions );
 
         $this->emit('show-modal', 'show modal');
     }
 
     public function update()
     {
+
+        //dd($this->selectedPermissions);
         // tener en cuenta que al poner las reglas no debe haber espacio en blanco.
         $rules=[
             'name'=>"required|min:3|unique:roles,name,$this->selected_id "
