@@ -24,6 +24,8 @@ class Roles extends Component
     public $componentName;
     public $selectedPermissions;
 
+    public $selected;
+
     //escuchamos eventos emitidos desde la vista
     protected $listeners = [
         'deleteRow' => 'destroy'
@@ -36,6 +38,9 @@ class Roles extends Component
         $this->pagination    = 5;
         $this->search        = '';
         $this->selectedPermissions=[];
+
+        $this->selected=[];
+
     }
 
     // limpiamos el buscador
@@ -117,9 +122,13 @@ class Roles extends Component
 
         //$this->selectedPermissions = $role->permissions->pluck('name','id');  //$role->getPermissionNames();
 
-        $this->selectedPermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id",$role->id)
+        /* $this->selectedPermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id",$role->id)
                     ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')
-                    ->all();
+                    ->all(); */
+
+        // de esta forma llenamos una array con valores especificando el key
+        $this->selected = array_fill_keys($role->permissions->pluck('id')->toArray(),true);
+
 
 /*         $permissions = Permission::all()->pluck('name', 'id');
         $role->load('permissions'); */
@@ -132,7 +141,7 @@ class Roles extends Component
     public function update()
     {
 
-        //dd($this->selectedPermissions);
+        //dd($this->selected);
         // tener en cuenta que al poner las reglas no debe haber espacio en blanco.
         $rules=[
             'name'=>"required|min:3|unique:roles,name,$this->selected_id "
@@ -152,7 +161,12 @@ class Roles extends Component
 
             $role->name =$this->name;
             $role->save();
-            $role->syncPermissions($this->selectedPermissions);
+
+            // de esta forma convertimos a areglo simple los checks seleccionado y lo guardamos
+            $xx=array_keys(array_filter($this->selected));
+            $role->syncPermissions($xx);
+
+            //$role->syncPermissions($this->selectedPermissions);
 
             DB::commit();
 
