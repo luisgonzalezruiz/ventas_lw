@@ -207,7 +207,7 @@ class Roles extends Component
 
         $this->name = "";
         $this->selectedPermissions = [];
-        /* $this->resetValidation(); */
+        $this->resetValidation();
         $this->emit('hide-modal', 'hide modal');
     }
 

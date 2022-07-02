@@ -6,6 +6,7 @@ use App\Http\Livewire\Denomination\Denominations;
 use App\Http\Livewire\Pos\Pos;
 use \App\Http\Livewire\Product\Products;
 use App\Http\Livewire\Role\Roles;
+use App\Http\Livewire\Permiso\Permisos;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,6 +22,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/denominations', Denominations::class)->name('denominations');
     Route::get('/pos', Pos::class)->name('pos');
     Route::get('/roles', Roles::class)->name('roles');
+    Route::get('/permissions', Permisos::class)->name('permissions');
 
     // Route::get('/products', Products::class)->name('products');
 /*     Route::get('/denominations', Denominations::class)->name('denominations');
